@@ -8,8 +8,8 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
-    background-image: linear-gradient(to right,rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.3));
+    padding: 50px 50px;
+    background-image: linear-gradient(to right,rgba(106, 17, 203, 1), rgba(37, 117, 252, 0.8));
 }
 
 .welcome{
@@ -40,3 +40,22 @@
     
 }
 
+.all-table{
+    /* border: 2px solid green; */
+    margin: 30px 100px;
+}
+
+.assign-table{
+    border: 2px solid green;
+    margin: 30px 100px;
+    
+}
+
+
+
+@media screen and (max-width:600px){
+    
+    .all-table{
+        margin: 30px 50px;
+    }
+}

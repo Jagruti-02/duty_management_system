@@ -23,14 +23,13 @@ h1{
     }
 
 .congrats-line{
-    border: 2px solid green;
     font-size: 25px;
 }
 
 .login-btn{
     font-size: 20px;
     border-radius: 20px;
-    background-color: #6a11cb;
+    /* background-color: #6a11cb; */
     color: #ddd;
     
 }

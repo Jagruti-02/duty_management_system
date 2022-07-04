@@ -26,53 +26,80 @@
   </head>
 
   <body>
-    <div class="navbar mb-6">
+    <div class="navbar">
       <div class="welcome">Welcome Admin</div>
-      <div class="profile">Hello User! <a href="/">Log out</a></div>
+      <div class="profile">Hello User! <a href="signout/">Log out</a></div>
     </div>
     {% block content %}
 
-    <table class="table table-borderless mt-6">
-      <thead class="border-bottom font-weight-bold mt-5">
-        <tr>
-          <td>User Name</td>
-          <td>Employee ID</td>
-          <td>
-            <a
-              href="{% url 'employee_insert' %} "
-              class="btn btn-outline-success"
-              ><i class="fas fa-plus"></i>Add New</a
-            >
-          </td>
-        </tr>
-      </thead>
-      <tbody>
-        {% for employee in employee_list %}
-        <tr>
-          <td>{{employee.username}}</td>
-          <td>{{employee.emp_code}}</td>
-          <td>
-            <a
-              href="{% url 'employee_update' employee.id %}"
-              class="btn text-primary px-0"
-            >
-              <i class="far fa-edit fa-lg"></i>
-            </a>
-            <form
-              action="{% url 'employee_delete' employee.id %}"
-              method="post"
-              class="d-inline"
-            >
-              {% csrf_token %}
-              <button type="submit" class="btn">
-                <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
-              </button>
-            </form>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="all-table">
+      <table class="table table-borderless mt-6">
+        <thead class="border-bottom font-weight-bold mt-5">
+          <tr>
+            <td>User Name</td>
+            <td>Employee ID</td>
+            <td>
+              <a
+                href="{% url 'employee_insert' %} "
+                class="btn btn-outline-success"
+                ><i class="fas fa-plus"></i>Add New</a
+              >
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for employee in ldata %}
+          <tr>
+            <td>{{employee.username}}</td>
+            <td>{{employee.emp_code}}</td>
+            <td>
+              <a
+                href="{% url 'employee_update' employee.id %}"
+                class="btn text-primary px-0"
+              >
+                <i class="far fa-edit fa-lg"></i>
+              </a>
+              <form
+                action="{% url 'employee_delete' employee.id %}"
+                method="post"
+                class="d-inline"
+              >
+                {% csrf_token %}
+                <button type="submit" class="btn">
+                  <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </button>
+              </form>
+            </td>
+            {% comment %} <td>
+              <form action="">
+                <label for="birthday"></label>
+                <input type="date" id="birthday" name="birthday">
+                <input type="submit">
+              </form>
+            </td> {% endcomment %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="assign-table">
+      <table class="table table-borderless mt-6">
+        <thead class="border-bottom font-weight-bold mt-5">
+          <tr>
+            <td>Employee ID</td>
+            <td>
+              <a
+                href="{% url 'employee_insert' %} "
+                class="btn btn-outline-success"
+                ><i class="fas fa-plus"></i>Add New</a
+              >
+            </td>
+          </tr>
+        </thead>
+       
+        
+    </div>
 
     {% endblock content %}
   </body>
