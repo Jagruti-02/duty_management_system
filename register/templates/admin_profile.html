@@ -1,0 +1,79 @@
+{% comment %} {% extends "register/base.html" %} {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+    <title>Admin Profile page</title>
+  </head>
+
+  <body>
+    <div class="navbar mb-6">
+      <div class="welcome">Welcome Admin</div>
+      <div class="profile">Hello User! <a href="/">Log out</a></div>
+    </div>
+    {% block content %}
+
+    <table class="table table-borderless mt-6">
+      <thead class="border-bottom font-weight-bold mt-5">
+        <tr>
+          <td>User Name</td>
+          <td>Employee ID</td>
+          <td>
+            <a
+              href="{% url 'employee_insert' %} "
+              class="btn btn-outline-success"
+              ><i class="fas fa-plus"></i>Add New</a
+            >
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employee_list %}
+        <tr>
+          <td>{{employee.username}}</td>
+          <td>{{employee.emp_code}}</td>
+          <td>
+            <a
+              href="{% url 'employee_update' employee.id %}"
+              class="btn text-primary px-0"
+            >
+              <i class="far fa-edit fa-lg"></i>
+            </a>
+            <form
+              action="{% url 'employee_delete' employee.id %}"
+              method="post"
+              class="d-inline"
+            >
+              {% csrf_token %}
+              <button type="submit" class="btn">
+                <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% endblock content %}
+  </body>
+</html>
