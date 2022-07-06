@@ -1,4 +1,3 @@
-{% comment %} {% extends "register/base.html" %} {% endcomment %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -36,20 +35,27 @@
       <table class="table table-borderless mt-6">
         <thead class="border-bottom font-weight-bold mt-5">
           <tr>
+            <td>Full Name</td>
             <td>User Name</td>
             <td>Employee ID</td>
             <td>
               <a
                 href="{% url 'employee_insert' %} "
                 class="btn btn-outline-success"
-                ><i class="fas fa-plus"></i>Add New</a
+                ><i class="fas fa-plus"></i> Add New</a
               >
+            </td>
+            <td>
+              <a href="assign/" class="btn btn-outline-success"
+                ><i class="fas fa-plus"></i>Assign
+              </a>
             </td>
           </tr>
         </thead>
         <tbody>
           {% for employee in ldata %}
           <tr>
+            <td>{{employee.fullname}}</td>
             <td>{{employee.username}}</td>
             <td>{{employee.emp_code}}</td>
             <td>
@@ -70,35 +76,10 @@
                 </button>
               </form>
             </td>
-            {% comment %} <td>
-              <form action="">
-                <label for="birthday"></label>
-                <input type="date" id="birthday" name="birthday">
-                <input type="submit">
-              </form>
-            </td> {% endcomment %}
           </tr>
           {% endfor %}
         </tbody>
       </table>
-    </div>
-
-    <div class="assign-table">
-      <table class="table table-borderless mt-6">
-        <thead class="border-bottom font-weight-bold mt-5">
-          <tr>
-            <td>Employee ID</td>
-            <td>
-              <a
-                href="{% url 'employee_insert' %} "
-                class="btn btn-outline-success"
-                ><i class="fas fa-plus"></i>Add New</a
-              >
-            </td>
-          </tr>
-        </thead>
-       
-        
     </div>
 
     {% endblock content %}

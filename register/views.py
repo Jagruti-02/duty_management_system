@@ -40,7 +40,7 @@ def employee_form(request, id=0):
 def employee_delete(request, id):
     employee = Employee.objects.get(pk=id)
     employee.delete()
-    return redirect('/register/list')
+    return redirect('/adminprofile')
 
 
 def home(request):
@@ -63,7 +63,7 @@ def signin(request):
                 user_data = i  # user_data is the user object
 
         if (isLoginTrue == 1) and (user_data.user_type_id == 1):
-            return render(request, "profile.html", {'ldata': login_data})
+            return render(request, "profile.html", {'ldata': username})
         elif (isLoginTrue == 1) and (user_data.user_type_id == 2):
             return render(request, "admin_profile.html", {'ldata': login_data})
         else:
@@ -81,6 +81,11 @@ def admin_profile(request):
 
 def success(request):
     return render(request, 'success.html')
+
+
+def assign(request):
+    login_data = Employee.objects.all()
+    return render(request, 'assign.html', {'ldata': login_data})
 
 
 def signout(request):

@@ -8,7 +8,7 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    padding: 50px 50px;
+    padding: 30px 50px;
     background-image: linear-gradient(to right,rgba(106, 17, 203, 1), rgba(37, 117, 252, 0.8));
 }
 
@@ -46,11 +46,25 @@
 }
 
 .assign-table{
-    border: 2px solid green;
     margin: 30px 100px;
     
 }
 
+.display{
+    font-size: 25px;
+    padding: 30px ;
+}
+
+.report h4{
+    padding: 30px;
+    border: 2px solid green;
+}
+
+details{
+    padding: 30px;
+    display: flex;
+    border: 2px solid green;
+}
 
 
 @media screen and (max-width:600px){
