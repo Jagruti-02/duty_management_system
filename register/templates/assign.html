@@ -1,12 +1,14 @@
+{% load crispy_forms_tags %} 
+{% block content %}
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Employee Reportings</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,165 +19,63 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     />
-
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
       rel="stylesheet"
     />
-    <title>Assign duty</title>
 
-    <style>
-      .container {
-        display: flex;
-        justfy-items: space-between;
-        gap: 20px;
-        padding-block: 30px 50px;
-        font-size: 20px;
-        margin-bottom: 30px;
-      }
-    </style>
   </head>
-  <body>
-    <div class="navbar">
-      <div class="welcome">Welcome Admin</div>
-      <div class="profile">Hello User! <a href="/signout/">Log out</a></div>
+<form action="addtask/" method="POST" autocomplete="off">
+  {% csrf_token %}
+  
+ 
+  <select class="custom-select" name="drop1">
+    <option selected>Select ID</option>
+    {% for employee in ldata %}
+    <option value="{{employee.emp_code}}">
+      {{employee.emp_code}}
+    </option>
+    {% endfor %}
+  </select>
+
+  <select class="custom-select">
+    <option selected>Select ID</option>
+    {% for employee in ldata %}
+    <option value="{{employee.emp_code}}">
+      {{employee.emp_code}}
+    </option>
+    {% endfor %}
+  </select>
+
+  <select class="custom-select">
+    <option selected>Select ID</option>
+    {% for employee in ldata %}
+    <option value="{{employee.emp_code}}">
+      {{employee.emp_code}}
+    </option>
+    {% endfor %}
+  </select>
+
+  <select class="custom-select">
+    <option selected>Select ID</option>
+    {% for employee in ldata %}
+    <option value="{{employee.emp_code}}">
+      {{employee.emp_code}}
+    </option>
+    {% endfor %}
+  </select>
+
+    <label for="onduty">Select Date</label>
+    <input type="date" id="onduty" name="date" />
+  
+  <div class="row">
+    <div class="col-md-12 mt-3">
+      <button type="submit" class="btn btn-info btn-block btn-lg">
+        <i class="fas fa-database"></i> Submit
+      </button>
     </div>
+  </div>
 
-    {% block content %}
-
-    <div class="assign-table">
-      <table class="table table-borderless mt-6">
-        <thead class="border-bottom font-weight-bold mt-5">
-          <tr>
-            <td>Employee ID</td>
-            <td>Date</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <select class="custom-select">
-                <option selected>Select ID</option>
-                {% for employee in ldata %}
-                <option value="{{employee.emp_code}}">
-                  {{employee.emp_code}}
-                </option>
-                {% endfor %}
-              </select>
-            </td>
-            <td>
-              <form action="">
-                <label for="on duty"></label>
-                <input type="date" id="onduty" name="onduty" />
-              </form>
-            </td>
-            <td>
-              <button class="btn btn-outline-success" onClick="assignDuty()">
-                Submit
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <select class="custom-select">
-                <option selected>Select ID</option>
-                {% for employee in ldata %}
-                <option value="{{employee.emp_code}}">
-                  {{employee.emp_code}}
-                </option>
-                {% endfor %}
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <select class="custom-select">
-                <option selected>Select ID</option>
-                {% for employee in ldata %}
-                <option value="{{employee.emp_code}}">
-                  {{employee.emp_code}}
-                </option>
-                {% endfor %}
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <select class="custom-select">
-                <option selected>Select ID</option>
-                {% for employee in ldata %}
-                <option value="{{employee.emp_code}}">
-                  {{employee.emp_code}}
-                </option>
-                {% endfor %}
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <select class="custom-select">
-                <option selected>Select ID</option>
-                {% for employee in ldata %}
-                <option value="{{employee.emp_code}}">
-                  {{employee.emp_code}}
-                </option>
-                {% endfor %}
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="report">
-      <h4>Employees on duty</h4>
-      <div class="details">
-        {% comment %}
-        <div class="container">
-          <div class="date"></div>
-          <div class="employee"></div>
-        </div>
-        {% endcomment %}
-      </div>
-    </div>
-
-    {% endblock content %}
-  </body>
-
-  <script>
-    function assignDuty() {
-      const custom = document.querySelectorAll(".custom-select");
-      const onduty = document.querySelector("#onduty");
-
-      const container = document.createElement("div");
-      container.classList.add("container");
-
-      const date = document.createElement("div");
-      date.classList.add("date");
-      date.innerHTML = `${onduty.value}`;
-
-      container.appendChild(date);
-
-      const employee = document.createElement("div");
-      employee.classList.add("employee");
-
-      custom.forEach((element) => {
-        const value = element.value;
-        const text = element.options[element.selectedIndex].text;
-        if (text == "Select ID") {
-          return;
-        }
-        const div = document.createElement("div");
-        div.classList.add("employee-names");
-        div.innerHTML = `${text}`;
-        employee.appendChild(div);
-      });
-
-      container.appendChild(employee);
-
-      const details = document.querySelector(".details");
-
-      details.appendChild(container);
-    }
-  </script>
+</form>
 </html>
+{% endblock content%}

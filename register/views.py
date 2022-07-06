@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from matplotlib.style import context
 from .forms import EmployeeForm
-from .models import Employee
+from .models import Employee, report_table
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
@@ -87,6 +87,16 @@ def assign(request):
     login_data = Employee.objects.all()
     return render(request, 'assign.html', {'ldata': login_data})
 
+def reporting(request):
+    return render(request, 'reporting.html')
+
+def addtask(request):
+    if request.method == "POST":
+        drop1 = request.POST['drop1']
+        date = request.POST['date']
+        data = report_table(emp_code=drop1, date=date)
+        data.save()
+    return render(request, 'assign.html')
 
 def signout(request):
     logout(request)

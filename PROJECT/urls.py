@@ -27,5 +27,6 @@ urlpatterns = [
     path('adminprofile/', views.admin_profile, name='adminprofile'),
     path('success/', views.success, name='success'),
     path('assign/', views.assign, name='assign'),
-
+    path('reporting/', views.reporting, name='reporting'),
+    path('assign/addtask/', views.addtask, name='addtask'),
 ]
