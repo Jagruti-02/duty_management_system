@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render, redirect
 from matplotlib.style import context
 from .forms import EmployeeForm
@@ -85,7 +86,15 @@ def success(request):
 
 def assign(request):
     login_data = Employee.objects.all()
-    return render(request, 'assign.html', {'ldata': login_data})
+    reportings = report_table.objects.all()
+    d = {}
+    for i in reportings:
+        date = i.date
+        if date in d:
+            d[date].append(i.emp_code)
+        else:
+            d[date] = [i.emp_code]
+    return render(request, 'assign.html', {'ldata': login_data, 'reportings': d})
 
 def reporting(request):
     return render(request, 'reporting.html')
@@ -93,10 +102,28 @@ def reporting(request):
 def addtask(request):
     if request.method == "POST":
         drop1 = request.POST['drop1']
+        drop2 = request.POST['drop2']
+        drop3 = request.POST['drop3']
+        drop4 = request.POST['drop4']
+        drop5 = request.POST['drop5']
         date = request.POST['date']
-        data = report_table(emp_code=drop1, date=date)
-        data.save()
-    return render(request, 'assign.html')
+        if drop1 != "Select ID":
+            data = report_table(emp_code=drop1, date=date)
+            data.save()
+        if drop2 != "Select ID":
+            data2 = report_table(emp_code=drop2, date=date)
+            data2.save()
+
+        if drop3 != "Select ID":
+            data3 = report_table(emp_code=drop3, date=date)
+            data3.save()
+        if drop4 != "Select ID":
+            data4 = report_table(emp_code=drop4, date=date)
+            data4.save()
+        if drop5 != "Select ID":
+            data5 = report_table(emp_code=drop5, date=date)
+            data5.save()
+    return HttpResponseRedirect(reverse('assign'))
 
 def signout(request):
     logout(request)

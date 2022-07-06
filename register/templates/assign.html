@@ -1,6 +1,4 @@
-{% load crispy_forms_tags %} 
-{% block content %}
-{% load static %}
+{% load crispy_forms_tags %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Employee Reportings</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -23,59 +23,96 @@
       href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
       rel="stylesheet"
     />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
 
+      .report-data {
+        border: 5px solid #e6e6e6;
+        padding: 20px;
+        margin: 20px;
+      }
+    </style>
   </head>
-<form action="addtask/" method="POST" autocomplete="off">
-  {% csrf_token %}
-  
- 
-  <select class="custom-select" name="drop1">
-    <option selected>Select ID</option>
-    {% for employee in ldata %}
-    <option value="{{employee.emp_code}}">
-      {{employee.emp_code}}
-    </option>
-    {% endfor %}
-  </select>
 
-  <select class="custom-select">
-    <option selected>Select ID</option>
-    {% for employee in ldata %}
-    <option value="{{employee.emp_code}}">
-      {{employee.emp_code}}
-    </option>
-    {% endfor %}
-  </select>
-
-  <select class="custom-select">
-    <option selected>Select ID</option>
-    {% for employee in ldata %}
-    <option value="{{employee.emp_code}}">
-      {{employee.emp_code}}
-    </option>
-    {% endfor %}
-  </select>
-
-  <select class="custom-select">
-    <option selected>Select ID</option>
-    {% for employee in ldata %}
-    <option value="{{employee.emp_code}}">
-      {{employee.emp_code}}
-    </option>
-    {% endfor %}
-  </select>
-
-    <label for="onduty">Select Date</label>
-    <input type="date" id="onduty" name="date" />
-  
-  <div class="row">
-    <div class="col-md-12 mt-3">
-      <button type="submit" class="btn btn-info btn-block btn-lg">
-        <i class="fas fa-database"></i> Submit
-      </button>
+  <body>
+    <div class="navbar">
+      <div class="welcome">Welcome Admin</div>
+      <div class="profile">Hello User! <a href="../signout/">Log out</a></div>
     </div>
-  </div>
 
-</form>
+    <div class="report-data">
+      <form action="addtask/" method="POST" autocomplete="off">
+        {% csrf_token %}
+
+        <select class="custom-select" name="drop1">
+          <option selected>Select ID</option>
+          {% for employee in ldata %}
+          <option value="{{employee.emp_code}}">{{employee.emp_code}}</option>
+          {% endfor %}
+        </select>
+
+        <select class="custom-select" name="drop2">
+          <option selected>Select ID</option>
+          {% for employee in ldata %}
+          <option value="{{employee.emp_code}}">{{employee.emp_code}}</option>
+          {% endfor %}
+        </select>
+
+        <select class="custom-select" name="drop3">
+          <option selected>Select ID</option>
+          {% for employee in ldata %}
+          <option value="{{employee.emp_code}}">{{employee.emp_code}}</option>
+          {% endfor %}
+        </select>
+
+        <select class="custom-select" name="drop4">
+          <option selected>Select ID</option>
+          {% for employee in ldata %}
+          <option value="{{employee.emp_code}}">{{employee.emp_code}}</option>
+          {% endfor %}
+        </select>
+
+        <select class="custom-select" name="drop5">
+          <option selected>Select ID</option>
+          {% for employee in ldata %}
+          <option value="{{employee.emp_code}}">{{employee.emp_code}}</option>
+          {% endfor %}
+        </select>
+
+        <label for="onduty">Select Date</label>
+        <input type="date" id="onduty" name="date" />
+
+        <div class="row">
+          <div class="col-md-12 my-8">
+            <button type="submit" class="btn btn-info btn-block btn-lg">
+              Add Employee
+            </button>
+          </div>
+        </div>
+
+        <table class="table table-borderless mt-6 pt-30">
+          <thead class="border-bottom font-weight-bold mt-5">
+            <tr>
+              <td>Date</td>
+              <td>Emp_Code</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for k, v in reportings.items %}
+            <tr>
+              <td>{{k}}</td>
+            </tr>
+            {% for i in v %}
+            <tr>
+              <td></td>
+              <td>{{i}}</td>
+            </tr>
+            {% endfor %} {% endfor %}
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </body>
 </html>
-{% endblock content%}
