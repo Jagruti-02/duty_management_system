@@ -16,3 +16,6 @@ class EmployeeForm(forms.ModelForm):
         self.fields['position'].empty_label = "Select"
         self.fields['user_type'].empty_label = "Select"
         self.fields['emp_code'].required = True
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
