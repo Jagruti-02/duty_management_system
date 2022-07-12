@@ -16,18 +16,23 @@ For the project, we use frontend languages like HTML, CSS and JavaScript and for
 # Working Results
 
 Login page
+
 ![Screenshot (46)](https://user-images.githubusercontent.com/77969198/178566173-468087f1-1389-47b1-b125-b352f71c445f.png)
 
 Signup page
+
 ![sss](https://user-images.githubusercontent.com/77969198/178566294-5ba4f891-0626-4eb1-a227-8cb8f661b884.png)
 
 Admin profile page
+
 ![ss](https://user-images.githubusercontent.com/77969198/178566326-65d39b06-f217-4ce7-98c8-b07e3d6c53ae.png)
 
 Admin duty assign page
+
 ![Screenshot (50)](https://user-images.githubusercontent.com/77969198/178566416-8f51ccc9-20a1-4a0f-92b4-dfed15b6eef5.png)
 
 On duty employee report display
+
 ![Screenshot (51)](https://user-images.githubusercontent.com/77969198/178566431-7a19bde8-f98d-40e9-b5e8-b7e68257b02e.png)
 
 # Result Discussion
