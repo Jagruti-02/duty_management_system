@@ -65,10 +65,14 @@ details{
     display: flex;
 }
 
-tbody{
+.report-table{
     border: 2px solid green;
+    padding:30px;
 }
 
+.custom-select{
+    margin-top: 15px;
+}
 
 
 @media screen and (max-width:600px){
