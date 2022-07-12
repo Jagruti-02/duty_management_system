@@ -1,29 +1,34 @@
 # ROASTER DUTY MANAGEMENT SYSTEM
 
-# ABSTRACT
+# Abstract
 
 The academic system requires a lot of paper labour, which frequently causes confusion when files or papers containing pertinent records are misplaced. Staff duty records are also kept on paper, which is inefficient because it causes delays in finding the necessary documents and compromises the security of the data. Lack of a web-based system for staff duty record keeping makes it challenging to: conveniently manage staff duty record keeping, preserve the records, easily update the records, and obtain necessary reports right away.
 The aim of the study is to develop a web-based staff duty record management system for the organization. The following are the specific objectives needed to realize the aim:
 1.	To develop a web-based system that will aid the easy registration of assigned staff and their details to database.
 2.	To develop a system that can be utilized to obtain reports pertain to staff on duties on respective dates
 
-# INTRODUCTION
+# Introduction
 
 This System is fully focused on Online Employee Management. It helps us for computerize the staff details, department maintenance, events details and maintenance, contact details, online forms. We can easily access and maintain our department and staff from wherever over the internet connection. We can maintain large number of documents. This system has login, public and private modules. Public modules are About Us, Staff Details. Event Details, Contact Details, Online Forms, notifications. Private modules are Staff maintenance, Event maintenance and assignation of required tasks. These public modules are only seen by public (Employees). Private modules are fully maintained and handles by Admin. It gives protection to staff information, other related events.
 
 For the project, we use frontend languages like HTML, CSS and JavaScript and for backend, we use mainly python-based language i.e., Django and MySQL to handle all the databases requirement
 
-# WORKING RESULTS
+# Working Results
 
 Login page
+![Screenshot (46)](https://user-images.githubusercontent.com/77969198/178566173-468087f1-1389-47b1-b125-b352f71c445f.png)
 
 Signup page
+![sss](https://user-images.githubusercontent.com/77969198/178566294-5ba4f891-0626-4eb1-a227-8cb8f661b884.png)
 
 Admin profile page
+![ss](https://user-images.githubusercontent.com/77969198/178566326-65d39b06-f217-4ce7-98c8-b07e3d6c53ae.png)
 
 Admin duty assign page
+![Screenshot (50)](https://user-images.githubusercontent.com/77969198/178566416-8f51ccc9-20a1-4a0f-92b4-dfed15b6eef5.png)
 
 On duty employee report display
+![Screenshot (51)](https://user-images.githubusercontent.com/77969198/178566431-7a19bde8-f98d-40e9-b5e8-b7e68257b02e.png)
 
 # Result Discussion
 
